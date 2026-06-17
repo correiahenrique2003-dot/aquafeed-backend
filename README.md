@@ -1,4 +1,4 @@
-# AquaFeed API 
+# AquaFeed API
 
 Sistema de monitoramento inteligente para tanques de piscicultura desenvolvido em Python com FastAPI.
 
@@ -7,6 +7,19 @@ Sistema de monitoramento inteligente para tanques de piscicultura desenvolvido e
 O AquaFeed é uma API desenvolvida para auxiliar no monitoramento de tanques de criação de peixes, permitindo o gerenciamento dos tanques e a simulação de sensores de temperatura e pH.
 
 O sistema também possui um mecanismo de alerta capaz de identificar condições inadequadas e simular o envio de notificações para os responsáveis.
+
+## Arquitetura do Sistema
+
+O projeto foi desenvolvido seguindo o padrão CRUD (Create, Read, Update e Delete), utilizando FastAPI para disponibilização dos endpoints, SQLAlchemy para manipulação do banco de dados e SQLite para armazenamento das informações.
+
+Estrutura principal:
+
+* app.py → Rotas da API
+* models.py → Modelos do banco de dados
+* schemas.py → Validação de dados
+* crud.py → Operações CRUD
+* database.py → Conexão com banco de dados
+* sensor.py → Simulação dos sensores
 
 ## Tecnologias Utilizadas
 
@@ -23,9 +36,7 @@ O sistema também possui um mecanismo de alerta capaz de identificar condições
 
 O projeto utiliza SQLite para armazenamento dos dados dos tanques.
 
-Tabela principal:
-
-### Tanque
+### Tabela Tanque
 
 | Campo              | Tipo    |
 | ------------------ | ------- |
@@ -82,15 +93,19 @@ GET /sensores
 
 GET /alarmes
 
+## Documentação da API
+
+Swagger:
+
+https://aquafeed-backend.onrender.com/docs
+
+![Swagger](docs/swagger.png)
+
 ## Deploy Online
 
 API publicada no Render:
 
 https://aquafeed-backend.onrender.com
-
-Documentação Swagger:
-
-https://aquafeed-backend.onrender.com/docs
 
 ## Executando Localmente
 
