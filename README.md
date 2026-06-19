@@ -135,6 +135,33 @@ pip install -r requirements.txt
 
 uvicorn app:app --reload
 
+## Links para Avaliação
+
+### Repositório GitHub
+
+https://github.com/correiahenrique2003-dot/aquafeed-backend
+
+### API Online
+
+https://aquafeed-backend.onrender.com
+
+### Documentação Swagger
+
+https://aquafeed-backend.onrender.com/docs
+
+## Status do Projeto
+
+* ✅ CRUD completo de tanques
+* ✅ API REST desenvolvida com FastAPI
+* ✅ Banco de dados SQLite integrado via SQLAlchemy
+* ✅ Simulação de sensores de temperatura e pH
+* ✅ Sistema de alarmes para condições críticas
+* ✅ Deploy realizado no Render
+* ✅ Documentação automática via Swagger
+* ✅ Controle de versão com Git e GitHub
+
+Status: Projeto concluído e pronto para avaliação.
+
 ## Autor
 
 Henrique Correia Alves da Silva
