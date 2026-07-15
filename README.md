@@ -162,6 +162,30 @@ https://aquafeed-backend.onrender.com/docs
 
 Status: Projeto concluído e pronto para avaliação.
 
+## Testes Automatizados
+
+O projeto possui testes unitários desenvolvidos com Pytest para validação dos principais endpoints da API.
+
+### Testes implementados
+
+- ✅ Home (/)
+- ✅ Listagem de tanques (/tanques)
+- ✅ Leitura dos sensores (/sensores)
+
+Para executar os testes:
+
+```bash
+python -m pytest
+```
+
+Resultado esperado:
+
+```
+========================
+3 passed
+========================
+```
+
 ## Autor
 
 Henrique Correia Alves da Silva
