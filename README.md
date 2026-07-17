@@ -1,183 +1,249 @@
 # AquaFeed API
 
-Sistema de monitoramento inteligente para tanques de piscicultura desenvolvido em Python com FastAPI.
+
+
+Sistema de monitoramento inteligente para tanques de piscicultura desenvolvido em Python utilizando FastAPI.
+
+<p align="center">
+Equipe do projeto AquaFeed durante o desenvolvimento no Programa Bolsa Futuro Digital – Instituto Federal de Sergipe (IFS), Campus Lagarto.
+  <img src="docs/equipe.jpg" width="750">
+</p>
+
+---
 
 ## Sobre o Projeto
 
-O AquaFeed é uma API desenvolvida para auxiliar no monitoramento de tanques de criação de peixes, permitindo o gerenciamento dos tanques e a simulação de sensores de temperatura e pH.
+O AquaFeed é uma API REST desenvolvida para auxiliar no monitoramento de tanques de piscicultura, permitindo o gerenciamento dos tanques e a simulação de sensores de temperatura e pH.
 
 O sistema também possui um mecanismo de alerta capaz de identificar condições inadequadas e simular o envio de notificações para os responsáveis.
 
+---
+
 ## Arquitetura do Sistema
 
-O projeto foi desenvolvido seguindo o padrão CRUD (Create, Read, Update e Delete), utilizando FastAPI para disponibilização dos endpoints, SQLAlchemy para manipulação do banco de dados e SQLite para armazenamento das informações.
+O projeto foi desenvolvido seguindo o padrão CRUD (Create, Read, Update e Delete), utilizando:
 
-Estrutura principal:
+- FastAPI para disponibilização dos endpoints;
+- SQLAlchemy para manipulação do banco de dados;
+- PostgreSQL hospedado no Supabase para armazenamento das informações.
 
-* app.py → Rotas da API
-* models.py → Modelos do banco de dados
-* schemas.py → Validação de dados
-* crud.py → Operações CRUD
-* database.py → Conexão com banco de dados
-* sensor.py → Simulação dos sensores
+### Estrutura do Projeto
+
+```
+app.py          → Rotas da API
+models.py       → Modelos do banco de dados
+schemas.py      → Validação dos dados
+crud.py         → Operações CRUD
+database.py     → Conexão com PostgreSQL
+sensor.py       → Simulação dos sensores
+```
+
+---
 
 ## Tecnologias Utilizadas
 
-* Python 3
-* FastAPI
-* SQLAlchemy
-* SQLite
-* Uvicorn
-* Git
-* GitHub
-* Render
+- Python 3
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Supabase
+- Uvicorn
+- Pytest
+- Locust
+- Git
+- GitHub
+- Render
+
+---
 
 ## Banco de Dados
 
-O projeto utiliza SQLite para armazenamento dos dados dos tanques.
+O projeto utiliza PostgreSQL hospedado no Supabase para armazenamento dos dados.
 
-### Tabela Tanque
+### Estrutura da tabela Tanques
 
-| Campo              | Tipo    |
-| ------------------ | ------- |
-| id                 | Integer |
-| nome               | String  |
-| capacidade         | Float   |
-| nivel_agua         | Float   |
+| Campo | Tipo |
+|-------|------|
+| id | Integer |
+| nome | String |
+| capacidade | Float |
+| nivel_agua | Float |
 | sensor_temperatura | Boolean |
-| sensor_ph          | Boolean |
+| sensor_ph | Boolean |
+
+---
 
 ## Funcionalidades
 
 ### CRUD de Tanques
 
-* Criar tanque
-* Listar tanques
-* Buscar tanque por ID
-* Atualizar tanque
-* Deletar tanque
+- Criar tanque
+- Listar tanques
+- Buscar tanque por ID
+- Atualizar tanque
+- Excluir tanque
 
 ### Simulação de Sensores
 
-* Temperatura da água
-* pH da água
+- Temperatura da água
+- pH da água
 
 ### Sistema de Alarmes
 
-* Identificação automática de temperatura acima do limite
-* Simulação de envio de alerta por Email/SMS
+- Identificação automática de temperatura acima do limite
+- Simulação de envio de alerta por Email/SMS
+
+---
 
 ## Endpoints
 
-### Home
+| Método | Endpoint | Descrição |
+|---------|----------|-----------|
+| GET | / | Página inicial |
+| GET | /tanques | Lista todos os tanques |
+| POST | /tanques | Cadastra um tanque |
+| GET | /tanques/{id} | Busca um tanque |
+| PUT | /tanques/{id} | Atualiza um tanque |
+| DELETE | /tanques/{id} | Remove um tanque |
+| GET | /sensores | Simula leitura dos sensores |
+| GET | /alarmes | Verifica condições de alerta |
 
-GET /
-
-### Tanques
-
-GET /tanques
-
-POST /tanques
-
-GET /tanques/{id}
-
-PUT /tanques/{id}
-
-DELETE /tanques/{id}
-
-### Sensores
-
-GET /sensores
-
-### Alarmes
-
-GET /alarmes
+---
 
 ## Documentação da API
 
-Swagger:
+A documentação automática da API foi gerada utilizando Swagger.
+
+**Acesse:**
 
 https://aquafeed-backend.onrender.com/docs
 
 ![Swagger](docs/swagger.png)
 
-## Deploy Online
+---
 
-API publicada no Render:
+## Deploy
+
+A aplicação encontra-se publicada em produção utilizando Render.
+
+**API Online**
 
 https://aquafeed-backend.onrender.com
+
+**Documentação Swagger**
+
+https://aquafeed-backend.onrender.com/docs
+
+**Banco de Dados**
+
+PostgreSQL (Supabase)
+
+---
 
 ## Executando Localmente
 
-### Clonar repositório
+### Clonar o repositório
 
+```bash
 git clone https://github.com/correiahenrique2003-dot/aquafeed-backend.git
+```
 
 ### Entrar na pasta
 
+```bash
 cd aquafeed-backend
+```
 
 ### Criar ambiente virtual
 
+```bash
 python -m venv venv
+```
 
 ### Ativar ambiente virtual
 
-Windows:
+Windows
 
+```bash
 venv\Scripts\activate
+```
 
-### Instalar dependências
+Linux
 
+```bash
+source venv/bin/activate
+```
+
+### Instalar as dependências
+
+```bash
 pip install -r requirements.txt
+```
 
-### Executar aplicação
+### Executar a aplicação
 
+```bash
 uvicorn app:app --reload
+```
 
-## Links para Avaliação
+---
 
-### Repositório GitHub
+## Testes
 
-https://github.com/correiahenrique2003-dot/aquafeed-backend
+### Testes Unitários
 
-### API Online
+Os testes foram desenvolvidos utilizando Pytest para validar os principais endpoints da API.
 
-https://aquafeed-backend.onrender.com
+Testes implementados:
 
-### Documentação Swagger
+- Home (/)
+- Listagem de tanques (/tanques)
+- Leitura dos sensores (/sensores)
 
-https://aquafeed-backend.onrender.com/docs
+Executar os testes:
+
+```bash
+python -m pytest
+```
+
+Resultado esperado:
+
+```
+====================
+3 passed
+====================
+```
+
+---
+
+### Teste de Carga
+
+Foi realizado um teste de carga utilizando o Locust com 20 usuários simultâneos.
+
+![Teste de Carga](docs/teste-carga.png)
+
+---
 
 ## Status do Projeto
 
-* ✅ CRUD completo de tanques
-* ✅ API REST desenvolvida com FastAPI
-* ✅ Banco de dados SQLite integrado via SQLAlchemy
-* ✅ Simulação de sensores de temperatura e pH
-* ✅ Sistema de alarmes para condições críticas
-* ✅ Deploy realizado no Render
-* ✅ Documentação automática via Swagger
-* ✅ Controle de versão com Git e GitHub
+- ✅ CRUD completo
+- ✅ API REST com FastAPI
+- ✅ PostgreSQL integrado ao Supabase
+- ✅ SQLAlchemy
+- ✅ Simulação de sensores
+- ✅ Sistema de alarmes
+- ✅ Testes unitários com Pytest
+- ✅ Teste de carga com Locust
+- ✅ Deploy no Render
+- ✅ Documentação automática com Swagger
+- ✅ Controle de versão utilizando Git e GitHub
 
-Status: Projeto concluído e pronto para avaliação.
+**Status:** Projeto concluído.
 
-## API Online
-
-Render
-
-https://aquafeed-backend.onrender.com
-
-Documentação
-
-https://aquafeed-backend.onrender.com/docs
-
-Banco de Dados
-
-Supabase PostgreSQL
+---
 
 ## Autor
 
-Henrique Correia Alves da Silva
+**Henrique Correia Alves da Silva**
 
-Projeto desenvolvido para fins acadêmicos no programa Bolsa Futuro Digital.
+Projeto desenvolvido para fins acadêmicos no programa **Bolsa Futuro Digital**.
