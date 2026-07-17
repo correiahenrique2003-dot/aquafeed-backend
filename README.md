@@ -208,6 +208,19 @@ Teste realizado utilizando o Locust com 20 usuários simultâneos.
 
 ![Teste de Carga](docs/teste-carga.png)
 >>>>>>> 17a1e26 (Adicionando documentação dos testes)
+## API Online
+
+Render
+
+https://aquafeed-backend.onrender.com
+
+Documentação
+
+https://aquafeed-backend.onrender.com/docs
+
+Banco de Dados
+
+Supabase PostgreSQL
 
 ## Autor
 
