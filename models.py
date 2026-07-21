@@ -13,6 +13,10 @@ class Tanque(Base):
 
     nivel_agua = Column(Float)
 
+    temperatura = Column(Float, default=0)
+
+    oxigenio = Column(Float, default=0)
+
     sensor_temperatura = Column(Boolean)
 
     sensor_ph = Column(Boolean)

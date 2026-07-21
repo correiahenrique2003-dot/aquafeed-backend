@@ -52,3 +52,24 @@ def atualizar_tanque(db: Session, tanque_id: int, dados):
         db.refresh(tanque)
 
     return tanque
+
+from schemas import LeituraCreate
+
+
+def atualizar_leitura(
+    db: Session,
+    tanque_id: int,
+    leitura: LeituraCreate
+):
+    tanque = buscar_tanque(db, tanque_id)
+
+    if not tanque:
+        return None
+
+    tanque.temperatura = leitura.temperatura
+    tanque.oxigenio = leitura.oxigenio
+
+    db.commit()
+    db.refresh(tanque)
+
+    return tanque

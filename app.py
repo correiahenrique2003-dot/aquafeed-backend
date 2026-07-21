@@ -86,6 +86,18 @@ def atualizar_tanque(
         tanque
     )
 
+@app.put("/tanques/{tanque_id}/leitura")
+def atualizar_leitura(
+    tanque_id: int,
+    leitura: schemas.LeituraCreate
+):
+    db = SessionLocal()
+
+    return crud.atualizar_leitura(
+        db,
+        tanque_id,
+        leitura
+    )
 
 @app.delete("/tanques/{tanque_id}")
 def deletar_tanque(tanque_id: int):
