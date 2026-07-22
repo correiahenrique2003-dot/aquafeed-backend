@@ -1,249 +1,92 @@
-# AquaFeed API
+#  AquaFeed - Monitoramento e Alertas para Piscicultura
 
+Bem-vindo ao repositório do desafio da empresa **AquaFeed** da segunda fase do curso Futuro Digital (CEPEDI)! 
 
+Equipe: Campus Lagarto
 
-Sistema de monitoramento inteligente para tanques de piscicultura desenvolvido em Python utilizando FastAPI.
-
-<p align="center">
-Equipe do projeto AquaFeed durante o desenvolvimento no Programa Bolsa Futuro Digital – Instituto Federal de Sergipe (IFS), Campus Lagarto.
-  <img src="docs/equipe.jpg" width="750">
-</p>
+## 📖 Sobre o Projeto
+O objetivo deste projeto é desenvolver o Minimum Viable Product (MVP) do AquaFeed, um sistema web voltado para o monitoramento de dados essenciais na piscicultura. A ferramenta foca na validação rápida do produto, entregando uma interface responsiva e intuitiva para centralizar dados e otimizar a tomada de decisão de produtores e técnicos. A solução engloba o desenvolvimento de ponta a ponta, contemplando tanto o Frontend quanto o Backend.
 
 ---
 
-## Sobre o Projeto
-
-O AquaFeed é uma API REST desenvolvida para auxiliar no monitoramento de tanques de piscicultura, permitindo o gerenciamento dos tanques e a simulação de sensores de temperatura e pH.
-
-O sistema também possui um mecanismo de alerta capaz de identificar condições inadequadas e simular o envio de notificações para os responsáveis.
-
----
-
-## Arquitetura do Sistema
-
-O projeto foi desenvolvido seguindo o padrão CRUD (Create, Read, Update e Delete), utilizando:
-
-- FastAPI para disponibilização dos endpoints;
-- SQLAlchemy para manipulação do banco de dados;
-- PostgreSQL hospedado no Supabase para armazenamento das informações.
-
-### Estrutura do Projeto
-
-```
-app.py          → Rotas da API
-models.py       → Modelos do banco de dados
-schemas.py      → Validação dos dados
-crud.py         → Operações CRUD
-database.py     → Conexão com PostgreSQL
-sensor.py       → Simulação dos sensores
-```
+## 🔗 Links Úteis
+* **Repositório GitHub:** [Kaiobass/aquafeed](https://github.com/Kaiobass/aquafeed)
+* **Protótipo (Frontend):** [Protótipo do Front](https://kaiobass.github.io/aquafeed/)
+* **Design Figma:** [Wireframe - Figma](https://www.figma.com/design/6dGuEe7ULDXdJABvBV5R4j/Designer_AquaFeed?node-id=0-1&t=nw6PoKth7fG5RnJk-1)
 
 ---
 
-## Tecnologias Utilizadas
+## 📋 Tabela de Requisitos
 
-- Python 3
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
-- Supabase
-- Uvicorn
-- Pytest
-- Locust
-- Git
-- GitHub
-- Render
+* **Tabela de Requisitos Funcionais e Não Funcionais:** [Arquivo - Tabelas](https://drive.google.com/file/d/1iYt9pWNpbMF0SwKH4XlvKRx1-2l_k4mc/view?usp=sharing)
 
 ---
 
-## Banco de Dados
+## 🏗️ Arquitetura e Modelagem
 
-O projeto utiliza PostgreSQL hospedado no Supabase para armazenamento dos dados.
+### Diagrama de Entidade e Relacionamento (DER)
 
-### Estrutura da tabela Tanques
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/09c56b96-b6a6-4510-893b-c5a9185aba09" />
 
-| Campo | Tipo |
-|-------|------|
-| id | Integer |
-| nome | String |
-| capacidade | Float |
-| nivel_agua | Float |
-| sensor_temperatura | Boolean |
-| sensor_ph | Boolean |
+
+### Modelagem do Banco de Dados
+A modelagem foi pensada com uma arquitetura preparada para o futuro, utilizando uma tabela genérica de parâmetros para facilitar a adição de novos sensores além de temperatura e oxigenação. 
+
+<img width="1600" height="960" alt="image" src="https://github.com/user-attachments/assets/6394380b-a2d6-4150-98a9-f3a7100ef043" />
+
 
 ---
 
-## Funcionalidades
+## 📱 Telas do Projeto (Figma)
 
-### CRUD de Tanques
+<img width="774" height="398" alt="image" src="https://github.com/user-attachments/assets/4c992dbd-c242-48c1-93a0-8cef721b0ec7" />
 
-- Criar tanque
-- Listar tanques
-- Buscar tanque por ID
-- Atualizar tanque
-- Excluir tanque
+<img width="773" height="392" alt="image" src="https://github.com/user-attachments/assets/8f464c08-5ac9-4cd5-b46b-18f468d21be5" />
 
-### Simulação de Sensores
-
-- Temperatura da água
-- pH da água
-
-### Sistema de Alarmes
-
-- Identificação automática de temperatura acima do limite
-- Simulação de envio de alerta por Email/SMS
 
 ---
 
-## Endpoints
+## 🚀 Progresso e Tarefas (Milestones)
 
-| Método | Endpoint | Descrição |
-|---------|----------|-----------|
-| GET | / | Página inicial |
-| GET | /tanques | Lista todos os tanques |
-| POST | /tanques | Cadastra um tanque |
-| GET | /tanques/{id} | Busca um tanque |
-| PUT | /tanques/{id} | Atualiza um tanque |
-| DELETE | /tanques/{id} | Remove um tanque |
-| GET | /sensores | Simula leitura dos sensores |
-| GET | /alarmes | Verifica condições de alerta |
+O cronograma do projeto é dividido em entregas mensais ao longo de 3 meses. Acompanhe o progresso do desenvolvimento abaixo:
 
----
+### 📍 Milestone 1: Base Forte e Design Focado no Campo (Prazo: 29 de Maio)
+#### Link do Relatório (Maio): [Relatório - Maio](https://docs.google.com/document/d/1c4bVccjR0S4GJxiqdbLch61k3NYVSsJv/edit?usp=sharing&ouid=102176604401866097318&rtpof=true&sd=true)
+**Front-end:**
+- [X] Definir identidade visual com foco estrito em mobile-first (botões grandes e acessíveis). 
+- [X] Criar wireframes para cadastro de tanques e dashboard.  
+- [X] Realizar setup do projeto e entregar layout estático inicial. 
 
-## Documentação da API
+**Back-end:**
+- [X] Modelar o banco de dados (SQLite ou Postgres) com tabelas genéricas para parâmetros. 
+- [X] Realizar setup do ambiente da API (Node/Express ou Python/FastAPI/Django).  
+- [X] Criar endpoints de CRUD para os tanques.  
+- [X] Implementar autenticação via JWT. 
 
-A documentação automática da API foi gerada utilizando Swagger.
+### 📍 Milestone 2: Conectividade e Alertas Ativos (Prazo: 30 de Junho)
+**Front-end:**
+- [X] Desenvolver dashboard dinâmico consumindo dados da API.  
+- [X] Implementar tabelas e gráficos (Chart.js ou Recharts).  
+- [X] Criar alertas visuais.  
+- [X] Iniciar configuração PWA (Service Worker) para cache.  
+- [X] Implementar lógica offline-first com Local Storage para sincronização de leituras.  
 
-**Acesse:**
+**Back-end:**
+- [X] Criar endpoint para registro de leituras (manual e simulador). 
+- [X] Implementar lógica de cálculo de status (OK, Atenção, Crítico) baseada em temperatura e oxigenação.  
+- [X] Integrar API do Telegram (Bot) ou E-mail (Resend/SendGrid) para alertas ativos.
+- [X] Configurar disparo automático de mensagens para níveis "Críticos" de oxigênio. 
 
-https://aquafeed-backend.onrender.com/docs
+### 📍 Milestone 3: Polimento e "Instalação" (Prazo: 03 de Agosto)
+**Geral:**
+- [X] Realizar deploy da aplicação web completa em nuvem (Front e Back).  
 
-![Swagger](docs/swagger.png)
+**Front-end:**
+- [X] Finalizar configuração do PWA (manifest.json, ícones).  
+- [X] Habilitar função "Adicionar à Tela Inicial" para uso nativo.  
+- [X] Conduzir testes finais de usabilidade.  
 
----
+**Back-end:**
+- [X] Executar testes de estresse para recebimento de dados sincronizados em massa pós-conexão offline.  
+- [X] Realizar testes de rotas principais e validação de segurança da API. 
 
-## Deploy
-
-A aplicação encontra-se publicada em produção utilizando Render.
-
-**API Online**
-
-https://aquafeed-backend.onrender.com
-
-**Documentação Swagger**
-
-https://aquafeed-backend.onrender.com/docs
-
-**Banco de Dados**
-
-PostgreSQL (Supabase)
-
----
-
-## Executando Localmente
-
-### Clonar o repositório
-
-```bash
-git clone https://github.com/correiahenrique2003-dot/aquafeed-backend.git
-```
-
-### Entrar na pasta
-
-```bash
-cd aquafeed-backend
-```
-
-### Criar ambiente virtual
-
-```bash
-python -m venv venv
-```
-
-### Ativar ambiente virtual
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Linux
-
-```bash
-source venv/bin/activate
-```
-
-### Instalar as dependências
-
-```bash
-pip install -r requirements.txt
-```
-
-### Executar a aplicação
-
-```bash
-uvicorn app:app --reload
-```
-
----
-
-## Testes
-
-### Testes Unitários
-
-Os testes foram desenvolvidos utilizando Pytest para validar os principais endpoints da API.
-
-Testes implementados:
-
-- Home (/)
-- Listagem de tanques (/tanques)
-- Leitura dos sensores (/sensores)
-
-Executar os testes:
-
-```bash
-python -m pytest
-```
-
-Resultado esperado:
-
-```
-====================
-3 passed
-====================
-```
-
----
-
-### Teste de Carga
-
-Foi realizado um teste de carga utilizando o Locust com 20 usuários simultâneos.
-
-![Teste de Carga](docs/teste-carga.png)
-
----
-
-## Status do Projeto
-
-- ✅ CRUD completo
-- ✅ API REST com FastAPI
-- ✅ PostgreSQL integrado ao Supabase
-- ✅ SQLAlchemy
-- ✅ Simulação de sensores
-- ✅ Sistema de alarmes
-- ✅ Testes unitários com Pytest
-- ✅ Teste de carga com Locust
-- ✅ Deploy no Render
-- ✅ Documentação automática com Swagger
-- ✅ Controle de versão utilizando Git e GitHub
-
-**Status:** Projeto concluído.
-
----
-
-## Autor
-
-**Henrique Correia Alves da Silva**
-
-Projeto desenvolvido para fins acadêmicos no programa **Bolsa Futuro Digital**.
